@@ -169,6 +169,8 @@ Expectations for **parsing errors** should be declared using [the `negative` fro
 negative: SyntaxError
 ---*/
 
+// This `throw` statement guaruntees that no code is executed in order to
+// trigger the SyntaxError.
 throw NotEarlyError;
 var var = var;
 ```
