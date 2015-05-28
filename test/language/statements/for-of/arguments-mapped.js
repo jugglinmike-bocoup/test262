@@ -1,9 +1,11 @@
-// Copyright (C) Copyright 2014 the V8 project authors. All rights reserved.
+// Copyright (C) Copyright 2015 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 es6id: 13.6.4
 description: >
-    Arguments objects should be able to be traversed using a `for..of` loop.
+    "Mapped" arguments objects should be able to be traversed using a `for..of`
+    loop.
+flags: [noStrict]
 ---*/
 
 var i = 0;

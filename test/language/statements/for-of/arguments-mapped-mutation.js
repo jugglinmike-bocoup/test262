@@ -1,11 +1,12 @@
-// Copyright (C) Copyright 2014 the V8 project authors. All rights reserved.
+// Copyright (C) Copyright 2015 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 es6id: 13.6.4
 description: >
-    Arguments objects should be able to be traversed using a `for..of` loop,
-    and dynamic changes to their contents should be reflected in the iterated
-    values.
+    "Mapped" arguments objects should be able to be traversed using a `for..of`
+    loop, and dynamic changes to their contents should be reflected in the
+    iterated values.
+flags: [noStrict]
 ---*/
 
 var expected = [1, 4, 6];
