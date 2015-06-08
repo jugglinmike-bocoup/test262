@@ -115,6 +115,7 @@ This tag is for boolean properties associated with the test.
 
 - **`onlyStrict`** - only run the test in strict mode (*not supported by the browser runner*)
 - **`noStrict`** - only run the test in "sloppy" mode
+- **`raw`** - execute the test without any modification (no helpers will be available); necessary to test the behavior of directive prologue; implies `noStrict`
 
 #### features
 **features**: [list]
