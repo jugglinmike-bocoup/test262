@@ -15,6 +15,5 @@ flags: [onlyStrict]
 includes: [Test262Error.js]
 ---*/
 
-"use strict";
 throw new Test262Error();
-var _15_3_2_1_10_4_fun = new Function('param_1', 'param_2', 'param_1', '"use strict"; return 0;');
+var _15_3_2_1_10_4_fun = new Function('param_1', 'param_2', 'param_1', 'return 0;');
