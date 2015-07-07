@@ -1,0 +1,24 @@
+// Copyright (C) 2015 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+es6id: 25.4.5.3
+description: >
+    The Promise built-in is used when the context has no `constructor` property
+info: >
+    1. Let promise be the this value.
+    2. If IsPromise(promise) is false, throw a TypeError exception.
+    3. Let C be SpeciesConstructor(promise, %Promise%).
+    4. ReturnIfAbrupt(C).
+    5. Let resultCapability be NewPromiseCapability(C).
+---*/
+
+var callCount = 0;
+var context, firstArg, argLength, getCapabilitiesExecutor;
+var executor = function() {};
+var p = new Promise(function() {});
+p.constructor = null;
+
+assert.throws(TypeError, function() {
+  p.then();
+});
+
