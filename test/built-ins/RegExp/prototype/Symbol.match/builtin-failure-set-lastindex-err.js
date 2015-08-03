@@ -28,7 +28,6 @@ info: >
            i. Let setStatus be Set(R, "lastIndex", 0, true).
            ii. ReturnIfAbrupt(setStatus).
            iii. Return null.
-flags: [onlyStrict]
 features: [Symbol.match]
 ---*/
 

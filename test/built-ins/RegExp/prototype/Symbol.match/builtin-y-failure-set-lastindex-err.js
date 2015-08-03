@@ -28,7 +28,6 @@ info: >
            i. If sticky is true, then
               1. Let setStatus be Set(R, "lastIndex", 0, true).
               2. ReturnIfAbrupt(setStatus).
-flags: [onlyStrict]
 features: [Symbol.match]
 ---*/
 
