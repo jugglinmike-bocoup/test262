@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-description: Behavior when coercion of `lastIndex` attribute throws an error
+description: Coercion of `lastIndex` property value
 es6id: 21.2.5.6
 info: >
     [...]
