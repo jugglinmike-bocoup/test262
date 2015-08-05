@@ -3,8 +3,7 @@
 
 /*---
 es6id: 21.2.5.11
-description: >
-    Error thrown while coercing `lastIndex` property of splitter after a match
+description: Length coercion of `lastIndex` property of splitter after a match
 info: >
     [...]
     24. Repeat, while q < size
@@ -14,18 +13,22 @@ info: >
         [...]
         f. Else z is not null,
            i. Let e be ToLength(Get(splitter, "lastIndex")).
-           ii. ReturnIfAbrupt(e).
+           [...]
 features: [Symbol.split, Symbol.species]
 ---*/
 
-var badLastIndex;
+var result;
 var obj = {
   constructor: function() {}
 };
 var fakeRe = {
   set lastIndex(_) {},
   get lastIndex() {
-    return badLastIndex;
+    return {
+      valueOf: function() {
+        return 2.9;
+      }
+    };
   },
   exec: function() {
     return [];
@@ -35,14 +38,9 @@ obj.constructor[Symbol.species] = function() {
   return fakeRe;
 };
 
-badLastIndex = Symbol.split;
-assert.throws(TypeError, function() {
-  RegExp.prototype[Symbol.split].call(obj, 'abcd');
-});
+result = RegExp.prototype[Symbol.split].call(obj, 'abcd');
 
-badLastIndex = {
-  valueOf: function() { throw new Test262Error(); }
-};
-assert.throws(Test262Error, function() {
-  RegExp.prototype[Symbol.split].call(obj, 'abcd');
-});
+assert(Array.isArray(result));
+assert.sameValue(result.length, 2);
+assert.sameValue(result[0], '');
+assert.sameValue(result[1], 'cd');
