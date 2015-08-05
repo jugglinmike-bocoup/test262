@@ -26,7 +26,7 @@ features: [Symbol.split, Symbol.species]
 ---*/
 
 var thisVal, args, result;
-var re = /x/;
+var re = /x/y;
 re.constructor = function() {};
 re.constructor[Symbol.species] = function() {
   thisVal = this;
