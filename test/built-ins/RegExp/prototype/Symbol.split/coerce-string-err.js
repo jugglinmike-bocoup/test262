@@ -20,3 +20,7 @@ var uncoercibleObj = {
 assert.throws(Test262Error, function() {
   /./[Symbol.split](uncoercibleObj);
 });
+
+assert.throws(TypeError, function() {
+  /./[Symbol.split](Symbol.split);
+});

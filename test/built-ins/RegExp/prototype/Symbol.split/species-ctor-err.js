@@ -32,5 +32,5 @@ re.constructor[Symbol.species] = function() {
 };
 
 assert.throws(Test262Error, function() {
-  RegExp.prototype[Symbol.split].call(re);
+  re[Symbol.split]();
 });

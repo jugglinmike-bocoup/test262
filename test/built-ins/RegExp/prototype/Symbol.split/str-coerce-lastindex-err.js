@@ -4,7 +4,8 @@
 /*---
 es6id: 21.2.5.11
 description: >
-    Error thrown while coercing `lastIndex` property of splitter after a match
+    Behavior when error thrown while coercing `lastIndex` property of splitter
+    after a match
 info: >
     [...]
     24. Repeat, while q < size

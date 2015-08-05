@@ -27,9 +27,10 @@ var obj = {
   constructor: function() {}
 };
 var poisonedCapture = {
-  length: 2,
+  length: 3,
   0: 'a',
-  get 1() {
+  1: 'b',
+  get 2() {
     throw new Test262Error();
   }
 };

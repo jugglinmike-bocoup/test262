@@ -13,6 +13,7 @@ info: >
 features: [Symbol.split, Symbol.species]
 ---*/
 
+var callCount = 0;
 var obj = {
   constructor: function() {}
 };
@@ -20,6 +21,9 @@ obj.constructor[Symbol.species] = function() {
   return {
     set lastIndex(_) {
       throw new Test262Error();
+    },
+    exec: function() {
+      callCount += 1;
     }
   };
 };
@@ -27,3 +31,5 @@ obj.constructor[Symbol.species] = function() {
 assert.throws(Test262Error, function() {
   RegExp.prototype[Symbol.split].call(obj, 'a');
 });
+
+assert.sameValue(callCount, 0);

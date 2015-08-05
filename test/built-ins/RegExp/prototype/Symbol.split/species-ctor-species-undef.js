@@ -4,8 +4,8 @@
 /*---
 es6id: 21.2.5.11
 description: >
-    RegExp used when `this` value's constructor does not define a
-    `Symbol.species` property
+    RegExp used when the `Symbol.species` property of the `this` value's
+    constructor is `undefined` or `null`
 info: >
     [...]
     5. Let C be SpeciesConstructor(rx, %RegExp%).
@@ -30,7 +30,7 @@ var result;
 re.constructor = noSpecies;
 
 noSpecies[Symbol.species] = undefined;
-result = RegExp.prototype[Symbol.split].call(re, 'abcde');
+result = re[Symbol.split]('abcde');
 
 assert(Array.isArray(result));
 assert.sameValue(result.length, 3);
@@ -39,7 +39,7 @@ assert.sameValue(result[1], 'c');
 assert.sameValue(result[2], 'e');
 
 noSpecies[Symbol.species] = null;
-result = RegExp.prototype[Symbol.split].call(re, 'abcde');
+result = re[Symbol.split]('abcde');
 
 assert(Array.isArray(result));
 assert.sameValue(result.length, 3);

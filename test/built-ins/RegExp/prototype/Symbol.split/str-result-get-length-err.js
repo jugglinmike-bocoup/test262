@@ -30,10 +30,6 @@ var poisonedLength = {
   }
 };
 var fakeRe = {
-  set lastIndex(_) {},
-  get lastIndex() {
-    throw new Test262Error();
-  },
   exec: function() {
     return poisonedLength;
   }

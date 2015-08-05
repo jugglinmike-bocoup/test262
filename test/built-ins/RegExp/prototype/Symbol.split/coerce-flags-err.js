@@ -22,3 +22,11 @@ var uncoercibleFlags = {
 assert.throws(Test262Error, function() {
   RegExp.prototype[Symbol.split].call(uncoercibleFlags);
 });
+
+uncoercibleFlags = {
+  flags: Symbol.split
+};
+
+assert.throws(TypeError, function() {
+  RegExp.prototype[Symbol.split].call(uncoercibleFlags);
+});

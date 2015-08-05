@@ -26,7 +26,7 @@ features: [Symbol.split, Symbol.species]
 ---*/
 
 var thisVal, args, result;
-var re = /x/y;
+var re = /x/iy;
 re.constructor = function() {};
 re.constructor[Symbol.species] = function() {
   thisVal = this;
@@ -45,4 +45,4 @@ assert.sameValue(result[2], 'e');
 assert(thisVal instanceof re.constructor[Symbol.species]);
 assert.sameValue(args.length, 2);
 assert.sameValue(args[0], re);
-assert.sameValue(args[1], 'y');
+assert.sameValue(args[1], 'iy');

@@ -29,29 +29,29 @@ var re = /./;
 re.constructor = function() {};
 
 // Avoid false positives from unrelated TypeErrors
-RegExp.prototype[Symbol.split].call(re);
+re[Symbol.split]();
 
 re.constructor[Symbol.species] = {};
 assert.throws(TypeError, function() {
-  RegExp.prototype[Symbol.split].call(re);
+  re[Symbol.split]();
 });
 
 re.constructor[Symbol.species] = 0;
 assert.throws(TypeError, function() {
-  RegExp.prototype[Symbol.split].call(re);
+  re[Symbol.split]();
 });
 
 re.constructor[Symbol.species] = '';
 assert.throws(TypeError, function() {
-  RegExp.prototype[Symbol.split].call(re);
+  re[Symbol.split]();
 });
 
 re.constructor[Symbol.species] = Symbol.split;
 assert.throws(TypeError, function() {
-  RegExp.prototype[Symbol.split].call(re);
+  re[Symbol.split]();
 });
 
 re.constructor[Symbol.species] = Date.now;
 assert.throws(TypeError, function() {
-  RegExp.prototype[Symbol.split].call(re);
+  re[Symbol.split]();
 });

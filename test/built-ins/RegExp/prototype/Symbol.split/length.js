@@ -4,11 +4,9 @@
 es6id: 21.2.5.11
 description: RegExp.prototype[Symbol.split] `length` property
 info: >
+    The length property of the @@split method is 2.
+
     ES6 Section 17:
-    Every built-in Function object, including constructors, has a length
-    property whose value is an integer. Unless otherwise specified, this value
-    is equal to the largest number of named arguments shown in the subclause
-    headings for the function description, including optional parameters.
 
     [...]
 

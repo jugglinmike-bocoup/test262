@@ -22,7 +22,7 @@ var re = /[db]/;
 var result;
 re.constructor = undefined;
 
-result = RegExp.prototype[Symbol.split].call(re, 'abcde');
+result = re[Symbol.split]('abcde');
 
 assert(Array.isArray(result));
 assert.sameValue(result.length, 3);
